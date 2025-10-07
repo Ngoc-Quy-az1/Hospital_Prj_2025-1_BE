@@ -80,3 +80,5 @@ public interface BenhNhanRepository extends JpaRepository<BenhNhan, Integer> {
 
 
 
+
+
