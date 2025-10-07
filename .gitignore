@@ -1,168 +1,231 @@
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+    # Environment variables
+    .env
+    .env.local
+    .env.development.local
+    .env.test.local
+    .env.production.local
 
-# IDE
-.idea/
-*.iws
-*.iml
-*.ipr
-.vscode/
-*.swp
-*.swo
+    # IDE
+    .idea/
+    *.iws
+    *.iml
+    *.ipr
+    .vscode/
+    *.swp
+    *.swo
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+    # OS
+    .DS_Store
+    .DS_Store?
+    ._*
+    .Spotlight-V100
+    .Trashes
+    ehthumbs.db
+    Thumbs.db
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+    # Logs
+    logs/
+    *.log
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
 
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
+    # Runtime data
+    pids/
+    *.pid
+    *.seed
+    *.pid.lock
 
-# Coverage directory used by tools like istanbul
-coverage/
+    # Coverage directory used by tools like istanbul
+    coverage/
 
-# nyc test coverage
-.nyc_output
+    # nyc test coverage
+    .nyc_output
 
-# Dependency directories
-node_modules/
+    # Dependency directories
+    node_modules/
 
-# Optional npm cache directory
-.npm
+    # Optional npm cache directory
+    .npm
 
-# Optional REPL history
-.node_repl_history
+    # Optional REPL history
+    .node_repl_history
 
-# Output of 'npm pack'
-*.tgz
+    # Output of 'npm pack'
+    *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
+    # Yarn Integrity file
+    .yarn-integrity
 
-# dotenv environment variables file
-.env
+    # dotenv environment variables file
+    .env
 
-# Maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+    # Maven
+    target/
+    pom.xml.tag
+    pom.xml.releaseBackup
+    pom.xml.versionsBackup
+    pom.xml.next
+    release.properties
+    dependency-reduced-pom.xml
+    buildNumber.properties
+    .mvn/timing.properties
+    .mvn/wrapper/maven-wrapper.jar
 
-# Spring Boot
-*.jar
-*.war
-*.ear
-*.class
+    # Spring Boot
+    *.jar
+    *.war
+    *.ear
+    *.class
 
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.recommenders
+    # Temporary files
+    *.tmp
+    *.temp
+    *.bak
+    *.swp
+    *~.nib
+    local.properties
+    .settings/
+    .loadpath
+    .recommenders
 
-# External tool builders
-.externalToolBuilders/
+    # External tool builders
+    .externalToolBuilders/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+    # Locally stored "Eclipse launch configurations"
+    *.launch
 
-# PyDev specific (Python IDE for Eclipse)
-*.pydevproject
+    # PyDev specific (Python IDE for Eclipse)
+    *.pydevproject
 
-# CDT-specific (C/C++ Development Tooling)
-.cproject
+    # CDT-specific (C/C++ Development Tooling)
+    .cproject
 
-# CDT- autotools
-.autotools
+    # CDT- autotools
+    .autotools
 
-# Java annotation processor (APT)
-.factorypath
+    # Java annotation processor (APT)
+    .factorypath
 
-# PDT-specific (PHP Development Tools)
-.buildpath
+    # PDT-specific (PHP Development Tools)
+    .buildpath
 
-# sbteclipse plugin
-.target
+    # sbteclipse plugin
+    .target
 
-# Tern plugin
-.tern-project
+    # Tern plugin
+    .tern-project
 
-# TeXlipse plugin
-.texlipse
+    # TeXlipse plugin
+    .texlipse
 
-# STS (Spring Tool Suite)
-.springBeans
+    # STS (Spring Tool Suite)
+    .springBeans
 
-# Code Recommenders
-.recommenders/
+    # Code Recommenders
+    .recommenders/
 
-# Annotation Processing
-.apt_generated/
-.apt_generated_test/
+    # Annotation Processing
+    .apt_generated/
+    .apt_generated_test/
 
-# Scala IDE specific (Scala & Java IDE for Eclipse)
-.cache-main
-.scala_dependencies
-.worksheet
+    # Scala IDE specific (Scala & Java IDE for Eclipse)
+    .cache-main
+    .scala_dependencies
+    .worksheet
 
-# IntelliJ IDEA
-.idea/
-*.iml
-*.ipr
-*.iws
+    # IntelliJ IDEA
+    .idea/
+    *.iml
+    *.ipr
+    *.iws
 
-# Eclipse
-.project
-.metadata
-.classpath
-.settings/
-.loadpath
-target/
+    # Eclipse
+    .project
+    .metadata
+    .classpath
+    .settings/
+    .loadpath
+    target/
 
-# NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+    # NetBeans
+    /nbproject/private/
+    /nbbuild/
+    /dist/
+    /nbdist/
+    /.nb-gradle/
+    build/
 
-# VS Code
-.vscode/
+    # VS Code
+    .vscode/
 
-# Mac
-.DS_Store
+    # Mac
+    .DS_Store
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+    # Windows
+    Thumbs.db
+    ehthumbs.db
+    Desktop.ini
+
+    # Sensitive files and credentials
+    *.pem
+    *.key
+    *.crt
+    *.p12
+    *.pfx
+    *.jks
+    *.keystore
+    config/database.yml
+    config/secrets.yml
+    config/application.yml
+    config/local.yml
+    application-local.properties
+    application-dev.properties
+    application-prod.properties
+    
+    # API Keys and tokens
+    api_keys.txt
+    secrets.txt
+    credentials.json
+    service-account.json
+    firebase-adminsdk-*.json
+    
+    # Database files
+    *.db
+    *.sqlite
+    *.sqlite3
+    
+    # Backup files
+    *.backup
+    *.dump
+    *.sql
+    
+    # Configuration files with sensitive data
+    docker-compose.override.yml
+    docker-compose.local.yml
+    .dockerignore
+    
+    # SSL certificates
+    ssl/
+    certificates/
+    
+    # Private keys
+    private/
+    keys/
+    
+    # Test data
+    test-data/
+    sample-data/
+    
+    # Generated files
+    generated/
+    dist/
+    build/
+    
+    # Cache directories
+    .cache/
+    cache/
+    
+    # Temporary directories
+    tmp/
+    temp/
