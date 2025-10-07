@@ -231,3 +231,6 @@
     # Temporary directories
     tmp/
     temp/
+    
+    # Documentation with sensitive info
+    CONFIGURATION.md
