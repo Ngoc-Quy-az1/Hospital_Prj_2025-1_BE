@@ -4,6 +4,7 @@
     .env.development.local
     .env.test.local
     .env.production.local
+    environment.properties
 
     # IDE
     .idea/
@@ -233,3 +234,6 @@
     # Temporary directories
     tmp/
     temp/
+    
+    # Documentation with sensitive info
+    CONFIGURATION.md
