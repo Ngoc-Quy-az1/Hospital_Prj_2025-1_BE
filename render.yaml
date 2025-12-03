@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: hospital-backend
+    runtime: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/Hospital-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SERVER_PORT
+        value: 8090
+      # Database Configuration - Set these in Render Dashboard
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      # Mail Configuration - Set these in Render Dashboard
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      # Application Configuration
+      - key: APP_NAME
+        value: Hospital
+      # JPA Configuration
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_JPA_SHOW_SQL
+        value: "false"
+      # Logging
+      - key: LOGGING_LEVEL_ROOT
+        value: INFO
+
