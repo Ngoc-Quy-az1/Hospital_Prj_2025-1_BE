@@ -182,6 +182,10 @@
     application-local.properties
     application-dev.properties
     application-prod.properties
+    environment.properties
+    src/main/resources/application-dev.properties
+    src/main/resources/application-prod.properties
+    CONFIGURATION.md
     
     # API Keys and tokens
     api_keys.txt
