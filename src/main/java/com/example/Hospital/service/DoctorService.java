@@ -956,8 +956,9 @@ public class DoctorService {
             doctor = bacSiRepository.findByUser_UserId(user.getUserId()).orElse(null);
         }
         if (doctor == null) {
-            doctor = bacSiRepository.findTopByOrderByBacsiIdAsc()
-                    .orElseThrow(() -> new UserException(ErrorCode.BAC_SI_NOT_EXISTED));
+            // Security fix: Throw exception instead of falling back to arbitrary doctor
+            // This prevents unauthorized access to another doctor's data
+            throw new UserException(ErrorCode.BAC_SI_NOT_EXISTED);
         }
         return doctor;
     }
