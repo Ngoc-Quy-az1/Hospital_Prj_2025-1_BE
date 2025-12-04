@@ -1,0 +1,14 @@
+target/
+.git/
+.gitignore
+.gitattributes
+*.md
+.DS_Store
+.idea/
+.vscode/
+*.iml
+*.log
+.env
+environment.properties
+src/main/resources/application-dev.properties
+
