@@ -1,6 +1,7 @@
 package com.example.Hospital.entity;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "don_thuoc_chi_tiet")
@@ -16,6 +17,9 @@ public class DonThuocChiTiet {
     
     @Column(name = "lieu_dung", length = 200)
     private String lieuDung;
+
+    @Column(name = "don_gia", precision = 15, scale = 2)
+    private BigDecimal donGia;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "donthuoc_id", nullable = false)
@@ -36,6 +40,9 @@ public class DonThuocChiTiet {
     
     public String getLieuDung() { return lieuDung; }
     public void setLieuDung(String lieuDung) { this.lieuDung = lieuDung; }
+
+    public BigDecimal getDonGia() { return donGia; }
+    public void setDonGia(BigDecimal donGia) { this.donGia = donGia; }
     
     public DonThuoc getDonThuoc() { return donThuoc; }
     public void setDonThuoc(DonThuoc donThuoc) { this.donThuoc = donThuoc; }

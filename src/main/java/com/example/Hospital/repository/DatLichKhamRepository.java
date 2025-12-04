@@ -39,6 +39,11 @@ public interface DatLichKhamRepository extends JpaRepository<DatLichKham, Intege
      * Tìm lịch khám theo khoảng thời gian
      */
     List<DatLichKham> findByNgayGioBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
+
+    /**
+     * Tìm lịch khám của bác sĩ trong khoảng thời gian
+     */
+    List<DatLichKham> findByBacsi_BacsiIdAndNgayGioBetween(Integer bacsiId, LocalDateTime startDateTime, LocalDateTime endDateTime);
     
     /**
      * Tìm lịch khám theo loại khám

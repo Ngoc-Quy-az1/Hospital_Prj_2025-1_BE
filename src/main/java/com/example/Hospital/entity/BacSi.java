@@ -1,5 +1,6 @@
 package com.example.Hospital.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class BacSi {
     
     @Column(name = "email", length = 100)
     private String email;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private Users user;
     
     // Quan hệ Many-to-One với PhongBan
     @ManyToOne(fetch = FetchType.LAZY)
@@ -114,6 +120,14 @@ public class BacSi {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
     
     public PhongBan getPhongban() {

@@ -23,6 +23,9 @@ public class NhanVien {
     @Column(name = "chuc_vu", length = 100)
     private String chucVu;
     
+    @Column(name = "sdt", length = 20)
+    private String sdt;
+    
     @Column(name = "ngay_vao_lam")
     private LocalDate ngayVaoLam;
     
@@ -80,6 +83,14 @@ public class NhanVien {
     
     public void setChucVu(String chucVu) {
         this.chucVu = chucVu;
+    }
+    
+    public String getSdt() {
+        return sdt;
+    }
+    
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
     
     public LocalDate getNgayVaoLam() {

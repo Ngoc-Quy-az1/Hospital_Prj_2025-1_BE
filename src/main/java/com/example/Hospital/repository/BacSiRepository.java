@@ -38,6 +38,16 @@ public interface BacSiRepository extends JpaRepository<BacSi, Integer> {
      * Tìm bác sĩ theo email
      */
     Optional<BacSi> findByEmail(String email);
+
+    /**
+     * Tìm bác sĩ theo user ID (nếu có liên kết user)
+     */
+    Optional<BacSi> findByUser_UserId(Integer userId);
+
+    /**
+     * Lấy bác sĩ bất kỳ (fallback khi không map được user)
+     */
+    Optional<BacSi> findTopByOrderByBacsiIdAsc();
     
     /**
      * Tìm bác sĩ theo phòng ban và chuyên khoa
