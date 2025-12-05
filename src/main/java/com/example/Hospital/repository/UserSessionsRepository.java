@@ -32,6 +32,12 @@ public interface UserSessionsRepository extends JpaRepository<UserSessions, Inte
     Optional<UserSessions> findByAccessToken(String accessToken);
     
     /**
+     * Tìm session theo access token với TRIM để xử lý khoảng trắng
+     */
+    @Query("SELECT us FROM UserSessions us WHERE TRIM(us.accessToken) = TRIM(:accessToken)")
+    Optional<UserSessions> findByAccessTokenTrimmed(@Param("accessToken") String accessToken);
+    
+    /**
      * Tìm session theo IP address
      */
     List<UserSessions> findByIpAddress(String ipAddress);
