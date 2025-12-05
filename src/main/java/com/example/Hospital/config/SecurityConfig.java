@@ -34,6 +34,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 // Health check endpoints
                 .requestMatchers("/actuator/**").permitAll()
+                // Swagger/OpenAPI endpoints
+                .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
+                // Root path and static resources
+                .requestMatchers("/", "/error", "/favicon.ico").permitAll()
                 // All other endpoints require authentication
                 .requestMatchers("/api/admin/**").authenticated()
                 .requestMatchers("/api/doctor/**").authenticated()

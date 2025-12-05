@@ -40,7 +40,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String requestPath = request.getRequestURI();
         
         // Skip filter for public endpoints
-        if (requestPath.startsWith("/api/auth/") || requestPath.startsWith("/actuator/")) {
+        if (requestPath.equals("/") || 
+            requestPath.startsWith("/api/auth/") || 
+            requestPath.startsWith("/actuator/") ||
+            requestPath.startsWith("/swagger-ui") ||
+            requestPath.startsWith("/v3/api-docs") ||
+            requestPath.startsWith("/swagger-resources") ||
+            requestPath.startsWith("/webjars") ||
+            requestPath.equals("/error") ||
+            requestPath.equals("/favicon.ico")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -108,7 +116,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
             
             // Create authentication token
-            String role = user.getRole() != null ? user.getRole().getTenRole() : "benhnhan";
+            String role = "benhnhan"; // Default role
+            if (user.getRole() != null && user.getRole().getTenRole() != null) {
+                role = user.getRole().getTenRole();
+            }
+            
             // Remove "ROLE_" prefix if present, then add it back
             if (role.startsWith("ROLE_")) {
                 role = role.substring(5);
@@ -128,12 +140,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             authentication.setDetails(user);
             SecurityContextHolder.getContext().setAuthentication(authentication);
             
-            log.debug("Authentication set successfully for user: {} with role: {} on endpoint: {}", 
-                    principalName, role, requestPath);
+            log.info("Authentication set successfully for user: {} (ID: {}) with role: {} on endpoint: {}", 
+                    principalName, user.getUserId(), role, requestPath);
             
         } catch (Exception e) {
-            log.error("Error during JWT authentication for endpoint: {} - {}", requestPath, e.getMessage(), e);
+            log.error("Error during JWT authentication for endpoint: {} - Error: {}", requestPath, e.getMessage(), e);
             SecurityContextHolder.clearContext();
+            // Don't throw exception, let Spring Security handle the 403
         }
         
         filterChain.doFilter(request, response);

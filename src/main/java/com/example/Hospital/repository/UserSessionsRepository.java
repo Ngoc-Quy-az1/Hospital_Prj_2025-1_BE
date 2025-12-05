@@ -27,14 +27,21 @@ public interface UserSessionsRepository extends JpaRepository<UserSessions, Inte
     Optional<UserSessions> findByRefreshToken(String refreshToken);
     
     /**
-     * Tìm session theo access token
+     * Tìm session theo access token với JOIN FETCH để load user và role
      */
-    Optional<UserSessions> findByAccessToken(String accessToken);
+    @Query("SELECT us FROM UserSessions us " +
+           "LEFT JOIN FETCH us.user u " +
+           "LEFT JOIN FETCH u.role " +
+           "WHERE us.accessToken = :accessToken")
+    Optional<UserSessions> findByAccessToken(@Param("accessToken") String accessToken);
     
     /**
      * Tìm session theo access token với TRIM để xử lý khoảng trắng
      */
-    @Query("SELECT us FROM UserSessions us WHERE TRIM(us.accessToken) = TRIM(:accessToken)")
+    @Query("SELECT us FROM UserSessions us " +
+           "LEFT JOIN FETCH us.user u " +
+           "LEFT JOIN FETCH u.role " +
+           "WHERE TRIM(us.accessToken) = TRIM(:accessToken)")
     Optional<UserSessions> findByAccessTokenTrimmed(@Param("accessToken") String accessToken);
     
     /**
